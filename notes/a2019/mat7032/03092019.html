@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+  <link rel="stylesheet" href="../../../css/style.css">
+  <title>9381 Lyon</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <a class="header" href="../../../index.html">
+    <h1>9381 Lyon</h1>
+  </a>
+  <div class="topnav">
+    <a href="../../../index.html">Archives</a>
+    <a href="../../../apropos.html">À propos</a>
+  </div>
+  <h1>Topologie algébrique</h1>
+  <h2>3 septembre 2019</h2>
+  <h2>Chemins et homotopies de chemins</h2>
+  <div class="def-content"><p>
+    <div class="def-title">Définition 1</div>
+    Un <b>chemin</b> dans \(X\) allant de \(x_0\) à \(x_1\) est une fonction continue \((I;0,1)\to (X;x_0,x_1)\).
+  </p></div>
+  <div class="def-content"><p>
+    <div class="def-title">Définition 2</div>
+    L'ensemble \(\Omega(X; x_0, x_1)\) est la collection de tout les chemins dans \(X\) partant de \(x_0\) et se terminant à \(x_1\).
+    </p>
+    <p>
+      Lorsque \(x_0=x_1\), nous écrivons simplement \(\Omega(X; x_0)\) et chaque élément de cet ensemble est appelé un <b>lacet</b> basé en \(x_0\).
+    </p>
+  </div>
+  <p>
+    Prenons un chemin quelconque \(\alpha \in \Omega(X; x_0, x_1)\). Nous pouvons toujours définir le chemin \(\alpha^{-1}\) donné par \(\alpha^{-1}(t) = \alpha(1-t)\).
+    Ce chemin est continu car composition de deux fonctions continues. De plus, \(\alpha^{-1}(0) = \alpha(1) = x_1\) et \(\alpha^{-1}(1) = \alpha(0) = x_0\). Ainsi
+    \(\alpha^{-1} \in \Omega(X; x_1, x_0)\). En particulier, un lacet et son inverse appartiennent au même ensemble \(\Omega(X;x_0)\). Nous utilisons \(\varepsilon_{x_0}\) pour
+    dénoter le lacet constant, i.e. \(\varepsilon_{x_0}(t) = x_0\) pour tout \(t\in [0,1]\).
+  </p>
+  <div class="def-content">
+    <div class="def-title">Définition 3</div>
+    <p>
+      Soit \(\sigma, \tau \in \Omega(X;x_0)\). Nous disons que \(\sigma\) est <b>homotopique</b> à \(\tau\) rel \(\{0,1\}\), noté \(\sigma \simeq \tau\) rel \(\{0,1\}\),
+      si il existe une fonction continue \(F:I\times I\to X\) telle que
+      <ul>
+        <li>\(F(s,0)=\sigma(s)\ \forall s\)</li>
+        <li>\(F(s,1)=\tau(s)\ \forall s\)</li>
+        <li>\(F(0,t)=x_0\ \forall t\)</li>
+        <li>\(F(1,t)=x_1\ \forall t\)</li>
+      </ul>
+    </p>
+  </div>
+  <p>
+    En d'autres termes, deux chemins sont homotopiques si il est possible de déformer continûment l'un en l'autre.
+  </p>
+  <script src="../../../js/script.js"></script>
+</body>
+</html>

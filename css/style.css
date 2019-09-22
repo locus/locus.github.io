@@ -1,0 +1,117 @@
+body {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  background-color: #fffaf7;
+  color: #070706;
+}
+
+.header {
+  display: block;
+  background-color: #123456;
+  padding: 18px;
+  color: white;
+  text-decoration: none;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #234568;
+  padding: 0px;
+  margin: 0px;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.topnav a:hover {
+  background-color: #2f2f2f;
+  color: black;
+}
+
+.collapsible {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  background-color: #dff4b7;
+  color: #070706;
+  cursor: pointer;
+  text-align: left;
+  text-decoration: none;
+  border: none;
+  border-top: black 1px dotted;
+  outline: none;
+  width: 100%;
+  padding-top: 0.3em;
+  font-weight: bold;
+  font-size: 10pt;
+  display: inline-block;
+}
+
+.collapsible:hover {
+  background-color: #c0d893;
+}
+
+.collapsible:before {
+  content: '\2b9f  Montrer la preuve';
+}
+
+.active:before {
+  content: "\2b9d  Cacher la preuve";
+}
+
+.prop {
+  margin-top: 30px;
+  margin-bottom: 25px;
+  border: black 1px dotted;
+  background-color: #eef4d4;
+}
+
+.prop #title {
+  position: relative;
+  top: -0.5em;
+  left: 0.5em;
+  display: inline;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: 0.2em;
+  border: black 1px solid;
+  background-color: #c0d893;
+  font-weight: bold;
+}
+
+.prop #content {
+  margin-top: -1em;
+  margin-bottom: -0.5em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+.prop #proof {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  color: #070706;
+}
+
+.proof-box {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #eef4d4;
+  color: #070706;
+}
+
+.def-title {
+  background-color: #789abc;
+  font-weight: bold;
+}
+
+.def-content {
+  background-color: #abcdef;
+  color: black;
+}

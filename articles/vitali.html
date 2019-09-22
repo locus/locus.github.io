@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>9381 Lyon</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <a class="header" href="../index.html">
+    <h1>9381 Lyon</h1>
+  </a>
+  <div class="topnav">
+    <a href="../index.html">Archives</a>
+    <a href="../apropos.html">À propos</a>
+  </div>
+
+  <h1>L'ensemble de Vitali</h1>
+
+  <h2>Mesures</h2>
+  <p>Si nous avons un ensemble \(X\), nous aimerions être capable d'associer à chacun de ses sous-ensembles une sorte de mesure, disons une fonction \(m:\mathcal{P}(X)\to\mathbb{R}\). Par exemple, il serait agréable d'avoir une notion de "volume" pour chaque partie de \(\mathbb{R}\). Nous voudrions que cette notion respecte les caractéristiques intuitives suivantes:
+  <ol>
+    <li>la mesure est une notion monotone, i.e. si \(A\subseteq B\) alors \(m(A)\leq m(B)\)</li>
+    <li>la mesure est invariante sous la translation, i.e. pour chaque \(A\subseteq X\) et pour chaque \(\alpha \in \mathbb{R}\), nous avons \(m(A)=m(A+\alpha)\)</li>
+    <li>la mesure est décomposable, i.e. si \(A\) est l'union disjointe d'une famille dénombrable \(\{A_j\}_{j=1}^\infty\), alors \(m(A)=\sum_{j=1}^\infty m(A_j)\)</li>
+  </ol>
+  Nous souhaitons de plus que notre notion de mesure s'accorde avec nos notions de longueur, c'est-à-dire que sur la ligne des réels un intervale \([a,b]\) a comme mesure sa longueur, i.e. \(b-a\). Est-il vraiment possible de trouver une telle fonction \(m\) ? La réponse est malheureusement non: il existe des sous-ensembles de \(\mathbb{R}\) qui ne sont pas mesurables du tout ! Dans cet article, nous contruisons un tel exemple, en supposant l'axiome du choix.
+  </p>
+
+  <h2>Un ensemble non-mesurable</h2>
+  <p>Supposons que nous avons une mesure \(m\) qui respecte les trois conditions énoncées ci-haut, définie sur toutes les parties de la droite réelle. Comme \(\mathbb{Q}\) est un sous-groupe normal de \(\mathbb{R}\), nous pouvons nous pencher sur \(\mathbb{R}/\mathbb{Q}\).
+    Traditionnellement, la classe d'équivalence de \(x\) est dénotée par
+    \(\overline{x}\). Toutefois, dans cet article je vais plutôt écrire la classe de \(x\) par \([x]\), pourquoi pas. Par exemple, \([\pi]\) et \([\sqrt{5}]\) sont deux
+    classes différentes de \(\mathbb{R}/\mathbb{Q}\), parce que \(\pi\) et \(\sqrt{5}\) ne diffèrent pas par un nombre rationnel. Notons que \([\pi]=[\pi-3]\) et que \([\sqrt{5}]=[\sqrt{5}-2]\)... En général, si \([x]\in\mathbb{R}/\mathbb{Q}\),
+    il est toujours possible de trouver un nombre réel \(\alpha\in[0,1]\) tel que \([x]=[\alpha]\). Intuitivement, il s'agit d'enlever la partie entière de \(x\) et de ne
+    garder que la partie fractionnaire \(\alpha\). Comme \(x\) et \(\alpha\) ne diffèrent alors que par un entier, ils représentent la même classe. Nous souhaitons formaliser ce processus et choisir, pour chaque classe d'équivalence, un représentant dont la valeur se situe entre zéro et un. C'est ici que nous aurons besoin de l'axiome du choix.</p>
+
+  <p>Pour chaque \(x\in\mathbb{R}\), nous dénotons par \(\mathcal{C}_{x}\) l'ensemble \(\{\alpha\in[0,1]\ |\ [\alpha]=[x]\}\). Il est facile de vérifier que si \([x]=[y]\), alors \(\mathcal{C}_x\,=\,\mathcal{C}_y\). Nous posons maintenant \(\mathcal{C}=\bigcup_{x\in\mathbb{R}}\{\mathcal{C}_x\}\) et nous considérons une fonction de choix \(c:\mathcal{C}\to[0,1]\), grâce à laquelle nous posons \(\mathcal{N}=c(\mathcal{C})\). En termes moins formels, \(\mathcal{N}\) est un ensemble qui contient exactement un représentant par classe de \(\mathbb{R}/\mathbb{Q}\)
+    tel que chaque représentant est contenu dans l'intervalle \([0,1]\). Sans trop nous casser plus la tête, conjurons une énumération \(\{r_k\}_{k=1}^\infty\) des rationnels
+    dans \([-1,1]\). Définissons aussi \(\mathcal{N}_k\, =\mathcal{N}+r_k\). Nous pouvons alors découvrir deux choses:
+  </p>
+
+  <div class="prop">
+    <div id="title">Observation 1</div>
+    <div id="content">
+      <p>Pour tout \(i \neq j\), nous avons que \(\mathcal{N}_i\, \cap\, \mathcal{N}_j\, = \varnothing\).</p>
+    </div>
+    <button type="button" class="collapsible"></button>
+    <div id="proof">
+      <p>Supposons qu'il existe un \(\alpha\in\, \mathcal{N}_i\, \cap\, \mathcal{N}_j\) pour \(i\neq j\). Alors \(\alpha = x+r_i = y+r_j\) pour \(x,y\in\, \mathcal{N}\),
+      avec \(r_i\neq r_j\). Ainsi \(x-y=r_j-r_i\neq 0\), ce qui implique que \(x\neq y\) et que \(x-y\) est rationnel, i.e. \([x]=[y]\). Ceci entre en contradiction avec
+      le fait que \(\mathcal{N}\) ne contient qu'un seul représentant par classe ! Donc tout les ensembles \(\mathcal{N}_k\) sont deux-à-deux disjoints.</p>
+    </div>
+  </div>
+
+  <div class="prop">
+    <div id="title">Observation 2</div>
+    <div id="content">
+      <p>Nous avons que \([0,1]\subseteq \bigcup_{k=1}^\infty \mathcal{N}_k\, \subseteq [-1,2]\).</p>
+    </div>
+    <button type="button" class="collapsible"></button>
+    <div id="proof">
+      <p>Soit \(x\in [0,1]\), et soit \(\alpha\in [0,1]\) le représentant dans \(\mathcal{N}\) de la classe de \(x\). Alors il existe un entier \(k\)
+      tel que \(x-\alpha = r_k\), d'où nous concluons que \(x\in\, \mathcal{N}_k\), et donc que \(x\in\bigcup_{k=1}^\infty \mathcal{N}_k\).
+      De plus, par construction des \(\mathcal{N}_k\), il est aisé de voir que \(\bigcup_{k=1}^\infty \mathcal{N}_k\, \subseteq [-1,2]\).</p>
+    </div>
+  </div>
+
+  <p>Rappelons-nous que nous avons supposé que notre fonction de mesure \(m\) est définie sur toutes les parties de la ligne réelle, c'est-à-dire qu'elle assigne un nombre réel positif ou nul précis à chaque ensemble de nombres réels. En particulier, \(\mathcal{N}\), chaque \(\mathcal{N}_k\) et \(\bigcup_{k=1}^\infty \mathcal{N}_k\) se voient attribués une mesure. Nous avons aussi supposé que \(m\) répond aux trois propriétés énumérées dans la première partie de l'article. Nous voulons dériver une contradiction de cela.</p>
+  <p>Par monotonicité (propriété 1) et parce que les translatés sont tous disjoints (observation 1), nous obtenons à partir de l'observation 2 et de la propriété 3 que
+
+      \[ m([0,1])\leq m(\bigcup_{k=1}^\infty \mathcal{N}_k ) = \sum_{k=1}^\infty m(\mathcal{N}_k) \leq m([-1,2]). \]
+    
+    Évidemment, \(m([0,1])=1\) et \(m([-1,2])=3\). De plus, comme \(m(\mathcal{N}_k)=m(\mathcal{N})\) pour chaque \(k\) (propriété 2), nous concluons que
+
+      \[ 1 \leq \sum_{k=1}^\infty m(\mathcal{N}) \leq 3. \]
+
+    Hors, il est clair que ceci est impossible, puisque la mesure d'un ensemble est toujours positive ou nulle ! Clairement,
+    il n'est pas possible de donner une valeur à la mesure de l'ensemble \(\mathcal{N}\). Il est donc non-mesurable. Cela signifie qu'une notion de mesure aussi générale qu'on le souhaite (c'est-à-dire répondant aux trois propriétés données au début de l'article) qui s'accorde bien avec notre intuition de longueur et de volume (c'est-à-dire que la mesure d'un intervale est sa longueur et la mesure d'un rectangle en \(d\) dimensions est son volume) ne peut pas être bien définie sur tout les ensembles de nombres réels. Hors, il existe bien sûr des ensembles sur lesquels une notion de mesure est définie. Nous appelons ces ensembles des <i>ensembles mesurables</i> et l'étude de ces ensembles et des notions qu'ils impliquent s'appelle la <i>théorie de la mesure</i>.
+  </p>
+  <script src="../js/script.js"></script>
+</body>
+</html>
